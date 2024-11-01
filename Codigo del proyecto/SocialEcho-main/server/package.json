@@ -4,7 +4,7 @@
   "description": "A social networking platform",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --coverage",
     "start": "nodemon app.js",
     "production": "node app.js"
   },
@@ -36,11 +36,20 @@
     "passport-jwt": "^4.0.1",
     "request-ip": "^3.3.0"
   },
+  "jest": {
+  "transformIgnorePatterns": [
+    "node_modules/(?!axios/)"
+  ]
+},
   "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "babel-jest": "^29.7.0",
     "eslint": "^8.2.0",
     "husky": "^7.0.4",
-    "jest": "^27.4.5",
+    "jest": "^27.5.1",
     "nodemon": "^2.0.20",
-    "prettier": "2.8.7"
+    "prettier": "2.8.7",
+    "supertest": "^7.0.0"
   }
 }

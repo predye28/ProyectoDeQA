@@ -41,4 +41,10 @@ function createCategoryFilterService(servicePreference) {
   }
 }
 
-module.exports = createCategoryFilterService;
+module.exports = {
+  createCategoryFilterService,
+  CategoryFilterService,
+  TextRazorService,
+  InterfaceAPIService,
+  ClassifierAPIService,
+};

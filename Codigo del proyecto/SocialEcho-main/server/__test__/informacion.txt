@@ -1,0 +1,4 @@
+se utilizara jest y supertest en el directorio del server para hacer las pruebas
+
+npm install --save-dev jest supertest
+

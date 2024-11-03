@@ -16,6 +16,6 @@ npm test
 
 ## Ver el reporte de cobertura de las pruebas unitarias
 
-En el directorio `server/coverage/Icov-report/` hay un index.html que se muestra toda la cobertura de las pruebas unitarias.
+En el directorio `server/coverage/Icov-report/` hay un index.html que se muestra toda la cobertura de las pruebas unitarias de una forma más detallada.
 
 ![Cobertura de las pruebas](cobertura.png)

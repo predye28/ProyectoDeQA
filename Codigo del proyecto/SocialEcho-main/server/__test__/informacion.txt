@@ -1,2 +1,0 @@
-se utilizara como herramienta jest y en la carpeta server/coverage se puede observar el reporte de cobertura de las pruebas unitarias
-

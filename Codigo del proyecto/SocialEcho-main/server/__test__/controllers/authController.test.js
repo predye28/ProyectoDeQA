@@ -3,15 +3,16 @@ const UserContext = require('../../models/context.model');
 
 jest.mock('../../models/context.model');
 jest.mock('axios', () => ({
-    create: jest.fn(() => ({
-      get: jest.fn(),
-      post: jest.fn(),
-    })),
-  }));
-  
+  create: jest.fn(() => ({
+    get: jest.fn(),
+    post: jest.fn(),
+  })),
+}));
+
 describe('Pruebas unitarias para el controlador de autenticación', () => {
 
   describe('addContextData', () => {
+    // Prueba: Agregar datos del contexto correctamente
     it('debería agregar datos del contexto correctamente', async () => {
       const req = {
         userId: '609e128b9f1b2e001c8e0e3c',
@@ -34,17 +35,15 @@ describe('Pruebas unitarias para el controlador de autenticación', () => {
 
       await addContextData(req, res);
 
-      expect(res.status).toHaveBeenCalledWith(200);
-      expect(res.json).toHaveBeenCalledWith({ message: 'Email verification process was successful' });
+      expect(res.status).toHaveBeenCalledWith(200); 
+      expect(res.json).toHaveBeenCalledWith({ message: 'Email verification process was successful' }); 
     });
-
   });
 
   describe('getAuthContextData', () => {
+    // Prueba: Devolver datos del contexto del usuario correctamente
     it('debería devolver los datos del contexto del usuario', async () => {
-      const req = {
-        userId: '609e128b9f1b2e001c8e0e3c',
-      };
+      const req = { userId: '609e128b9f1b2e001c8e0e3c' };
       const res = { status: jest.fn().mockReturnThis(), json: jest.fn() };
 
       UserContext.findOne = jest.fn().mockResolvedValue({
@@ -60,7 +59,7 @@ describe('Pruebas unitarias para el controlador de autenticación', () => {
 
       await getAuthContextData(req, res);
 
-      expect(res.status).toHaveBeenCalledWith(200);
+      expect(res.status).toHaveBeenCalledWith(200); 
       expect(res.json).toHaveBeenCalledWith(expect.objectContaining({
         ip: '127.0.0.1',
         country: 'US',
@@ -73,32 +72,30 @@ describe('Pruebas unitarias para el controlador de autenticación', () => {
       }));
     });
 
+    // Prueba: Devolver error 404 si no se encuentran datos del usuario
     it('debería devolver un error 404 si no se encuentran datos del usuario', async () => {
-      const req = {
-        userId: '609e128b9f1b2e001c8e0e3c',
-      };
+      const req = { userId: '609e128b9f1b2e001c8e0e3c' };
       const res = { status: jest.fn().mockReturnThis(), json: jest.fn() };
 
       UserContext.findOne = jest.fn().mockResolvedValue(null);
 
       await getAuthContextData(req, res);
 
-      expect(res.status).toHaveBeenCalledWith(404);
-      expect(res.json).toHaveBeenCalledWith({ message: 'Not found' });
+      expect(res.status).toHaveBeenCalledWith(404); // 
+      expect(res.json).toHaveBeenCalledWith({ message: 'Not found' }); 
     });
 
+    // Prueba: Devolver error 500 si ocurre un problema al buscar
     it('debería devolver un error si ocurre un problema al buscar', async () => {
-      const req = {
-        userId: '609e128b9f1b2e001c8e0e3c',
-      };
+      const req = { userId: '609e128b9f1b2e001c8e0e3c' };
       const res = { status: jest.fn().mockReturnThis(), json: jest.fn() };
 
       UserContext.findOne = jest.fn().mockRejectedValue(new Error('Find failed'));
 
       await getAuthContextData(req, res);
 
-      expect(res.status).toHaveBeenCalledWith(500);
-      expect(res.json).toHaveBeenCalledWith({ message: 'Internal server error' });
+      expect(res.status).toHaveBeenCalledWith(500); 
+      expect(res.json).toHaveBeenCalledWith({ message: 'Internal server error' }); 
     });
   });
 });

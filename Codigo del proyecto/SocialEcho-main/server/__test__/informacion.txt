@@ -1,4 +1,2 @@
-se utilizara jest y supertest en el directorio del server para hacer las pruebas
-
-npm install --save-dev jest supertest
+se utilizara como herramienta jest y en la carpeta server/coverage se puede observar el reporte de cobertura de las pruebas unitarias
 

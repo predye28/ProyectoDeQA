@@ -4,7 +4,7 @@ jest.mock("axios", () => ({
     get: jest.fn(),
     post: jest.fn(),
     comments: {
-      analyze: jest.fn(), // Simulación de este metodo analyze
+      analyze: jest.fn(), 
     },
   })),
 }));

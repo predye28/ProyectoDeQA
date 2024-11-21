@@ -12,6 +12,10 @@ Este archivo contiene un análisis exhaustivo de los errores y problemas encontr
 
 ## Código de las Pruebas Automatizadas
 
-El código de las pruebas automatizadas está organizado en las siguientes ubicaciones dentro del proyecto:
+El código de las pruebas automatizadas está ubicado en la carpeta:
+
+- `Codigo de las pruebas automatizadas`
+
+Y tambien esta organizado en la sigueinte ubicación dentro del proyecto:
 
 - **Pruebas Automatizadas**: En la carpeta `client/cypress/integration`, encontrarás los scripts de pruebas automatizadas implementados con Cypress. Los scripts cubren varias funcionalidades clave del sistema, como el inicio de sesión, el registro de usuarios, la interacción con publicaciones y el seguimiento con usuarios.
